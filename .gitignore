@@ -1,0 +1,18 @@
+# Quarto y Typst
+.quarto/
+*_files/
+*_cache/
+/_site/
+
+# Salida de documentos (opcional, pero recomendado)
+*.pdf
+*.log
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# R
+.Rhistory
+.RData
+.Ruserdata
