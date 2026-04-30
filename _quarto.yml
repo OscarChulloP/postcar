@@ -1,0 +1,7 @@
+project:
+  type: default
+
+format:
+  typst:
+    template: base1.typ  # Esto conecta el QMD con el TYP
+    keep-typ: true       # Útil para debug

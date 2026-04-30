@@ -1,0 +1,96 @@
+---
+title: "Título del Poster: puede ser bastante largo tanto que pasa a 2 lineas"
+estudiante: "Estudiante 1, Estudiante 2"
+supervisor: "docente supervisor"
+escuela: "UNSAAC / Maestría en estadística"
+emails: "estudiante1@unsaac.edu.pe / estudiante2@unsaac.edu.pe / supervisor@unsaac.edu.pe"
+format: typst
+logo1: "logo1.png"
+logo2: "logo2.png"
+# CONTROLES DE COLOR
+#color_primario: "144d29"
+#color_secundario: "2e8b57"
+#color_resalte: "e8f5e9"   #(Para el resaltador ~~)
+bibliography: references.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+citeproc: true
+lang: "es"
+fig-cap-location: top
+---
+
+# Introducción
+
+¡Bienvenido a tu nueva plantilla profesional de póster generada con Quarto y Typst! 
+
+Este documento sirve como un lienzo base. El objetivo es que escribir tu póster sea tan fácil como escribir un documento de texto normal, sin pelear con cajas de diseño ni coordenadas. Por ejemplo, gracias a la magia que configuramos en la plantilla, si encierras una frase entre virgulillas dobles (~), ~~automáticamente sirve para resaltar el texto~~ con el color de resalte que elegiste, en lugar de tacharlo.
+
+También puedes escribir matemáticas en línea fácilmente, asegurando que $1+1=2$ se vea con la fuente tipográfica correcta de computadora. o simplemente citar algo como en látex [@mendoza2023].
+
+# Metodología
+
+Aquí es donde explicas la magia detrás de tu investigación. La gran ventaja de usar Quarto es que puedes ejecutar código directamente en el póster. 
+
+En este caso, estamos generando un análisis de dispersión utilizando R y ~~ggplot2~~. El código está oculto para mantener la elegancia del póster, pero el resultado se inyecta directamente. Vease @fig-grafico-prueba para visualizar los resultados.
+
+```{r}
+#| label: fig-grafico-prueba
+#| fig-cap: "Análisis de dispersión de datos GNSS."
+#| echo: false
+#| warning: false
+#| message: false
+
+library(ggplot2)
+
+# Crear datos de prueba
+set.seed(123)
+datos <- data.frame(
+  x = rnorm(100),
+  y = rnorm(100),
+  grupo = sample(c("A", "B"), 100, replace = TRUE)
+)
+
+# Generar el gráfico
+ggplot(datos, aes(x = x, y = y, color = grupo)) +
+  geom_point(size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal(base_size = 16) +
+  labs(
+    x = "Error Horizontal (mm)",
+    y = "Error Vertical (mm)",
+    color = "Estación"
+  ) +
+  scale_color_manual(values = c("#002147", "#0073e6")) +
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+# Resultados
+
+Tus ecuaciones complejas y tablas también se referencian solas. Por ejemplo, la relación fundamental del posicionamiento GNSS se describe en la @eq-pseudorange:
+
+$$p = \rho + c \cdot (dt - dT) + I + T + \varepsilon$$ {#eq-pseudorange}
+
+Y como se observa en la @tbl-parametros, Quarto formatea las tablas automáticamente para que coincidan con la estética del póster sin requerir esfuerzo adicional:
+
+| Parámetro | Valor Estimado | Unidad |
+|:----------|:--------------:|:------:|
+| PDOP      | < 2.5          | -      |
+| Ionósfera | 5.0            | m      |
+| Troposfera| 2.3            | m      |
+
+: Parámetros de error en el posicionamiento GNSS {#tbl-parametros}
+
+# Conclusiones
+
+Para llenar un poco más el espacio y comprobar que nuestras hermosas columnas separadas por líneas punteadas funcionan a la perfección, te dejo un clásico bloque de texto falso para rellenar:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat augue at velit tincidunt semper. Donec elementum porta posuere. Nullam interdum, odio at tincidunt feugiat, turpis nisi blandit eros, eu posuere risus felis non quam. Nam eget lorem odio. Duis et aliquet orci. Phasellus nec viverra est. Praesent odio orci, mattis vel mauris nec, consectetur fermentum mauris.
+
+Etiam eu hendrerit tortor. Donec mi tellus, efficitur et porttitor eu, auctor eu tellus. Quisque faucibus vestibulum sapien vel lacinia. Ut auctor lorem non interdum blandit.
+
+`#set text(size: 22pt)`{=typst}
+
+# Referencias
