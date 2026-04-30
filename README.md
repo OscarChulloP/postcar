@@ -17,21 +17,21 @@ Una vez instalada, puedes personalizar el póster directamente desde el YAML de 
 
 ```YAML
 ---
-title: "Título de tu Investigación"
-estudiante: "Tu Nombre Completo"
-semestre: "2026-I"
-supervisor: "Nombre del Asesor"
-escuela: "Escuela Profesional de Ingeniería Geomática"
-emails: "tu_correo@universidad.edu"
+title: "Título del Poster: puede ser bastante largo tanto que pasa a 2 lineas"
+estudiante: "Estudiante 1, Estudiante 2"
+supervisor: "docente supervisor"
+escuela: "Afiliación"
+emails: "estudiante1@unsaac.edu.pe / estudiante2@unsaac.edu.pe / supervisor@unsaac.edu.pe"
+format: typst
+logo1: "logo1.png"
+logo2: "logo2.png"
+# CONTROLES DE COLOR (todos son hexa)
+color_primario: "144d29"
+color_secundario: "2e8b57"
+color_resalte: "e8f5e9"   #(Para el resaltador ~~)
 
-# Configuración de Colores (Hexadecimal sin #)
-color_primario: "002147"   # Azul Marino (Encabezado)
-color_secundario: "0073e6" # Azul Brillante (Títulos de sección)
-color_resalte: "e0f0f0"   # Color de fondo para tablas/bloques
-
-# Logos (Asegúrate de que los archivos estén en la misma carpeta)
-logo1: "logo_universidad.png"
-logo2: "logo_escuela.png"
+bibliography: references.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl  #formato de cita (APA7)
 
 format: postcar-typst
 ---
